@@ -21,10 +21,28 @@ public class ZombieLife : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Bullet"){
-            if(life > 0){
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if(other.tag == "Bullet"){
+    //         if(life > 0){
+    //             life -= 1;
+    //             if(life < 1){
+    //                 //The character die
+    //                 Debug.Log("Muerto");
+    //                 zm.setIsDead();
+    //                 //I use the 5 numbers to start an animation in the animator controller
+    //                 anim.SetFloat("VelX", 5);
+    //                 anim.SetFloat("VelY", 5);
+    //                 Invoke("killZombie", 1f);
+    //             }
+    //         }
+            
+    //     }
+    // }
+
+    public void substractLife(){
+        //Used by rayCast in RayCastGenerator in the gun
+        if(life > 0){
                 life -= 1;
                 if(life < 1){
                     //The character die
@@ -36,8 +54,6 @@ public class ZombieLife : MonoBehaviour
                     Invoke("killZombie", 1f);
                 }
             }
-            
-        }
     }
 
     void killZombie(){

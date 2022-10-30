@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 3609111374611534867}
   m_Layer: 0
   m_Name: ARCHERY_Target 1
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,6 +176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae50d9562b92b64f81556473dc70e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreTag: {fileID: 0}
+  source: {fileID: 0}
+  winPoints: {fileID: 0}
+  losePoints: {fileID: 0}
 --- !u!54 &5466122028847418499
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -301,6 +305,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae50d9562b92b64f81556473dc70e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreTag: {fileID: 0}
+  source: {fileID: 0}
+  winPoints: {fileID: 0}
+  losePoints: {fileID: 0}
 --- !u!1 &9190518534056288453
 GameObject:
   m_ObjectHideFlags: 0

@@ -366,6 +366,7 @@
 "Assets/MyScripts/GunsAndAmmo/AmmoController.cs"
 "Assets/MyScripts/GunsAndAmmo/BulletDestroyer.cs"
 "Assets/MyScripts/GunsAndAmmo/BulletGenerator.cs"
+"Assets/MyScripts/GunsAndAmmo/RayCastGenerator.cs"
 "Assets/MyScripts/GunsAndAmmo/ShootTarget.cs"
 "Assets/MyScripts/Zombie/ZombieLife.cs"
 "Assets/MyScripts/Zombie/ZombieMovement.cs"

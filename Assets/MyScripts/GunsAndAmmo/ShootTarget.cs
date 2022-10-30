@@ -30,11 +30,11 @@ public class ShootTarget : MonoBehaviour
             ScoreTag.text = (aux+1).ToString();
             Destroy(this.gameObject);
         }
-        if(other.tag == "Bullet"){
-            source.PlayOneShot (losePoints);
-            int aux = int.Parse(ScoreTag.text);
-            ScoreTag.text = (aux-1).ToString();
-            Destroy(this.gameObject);
-        }
+        // if(other.tag == "Bullet"){
+        //     source.PlayOneShot (losePoints);
+        //     int aux = int.Parse(ScoreTag.text);
+        //     ScoreTag.text = (aux-1).ToString();
+        //     Destroy(this.gameObject);
+        // }
     }
 }

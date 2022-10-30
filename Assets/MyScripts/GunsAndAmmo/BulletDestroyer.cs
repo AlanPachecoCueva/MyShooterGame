@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletDestroyer : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float lifeTime = 10f;
+    public float lifeTime = 2f;
     void Start()
     {
         
@@ -22,5 +22,10 @@ public class BulletDestroyer : MonoBehaviour
         if(lifeTime < 0){
             Destroy(this.gameObject);
         } 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(this.gameObject);
     }
 }
