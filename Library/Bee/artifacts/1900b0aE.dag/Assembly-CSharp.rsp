@@ -368,6 +368,8 @@
 "Assets/MyScripts/GunsAndAmmo/BulletGenerator.cs"
 "Assets/MyScripts/GunsAndAmmo/RayCastGenerator.cs"
 "Assets/MyScripts/GunsAndAmmo/ShootTarget.cs"
+"Assets/MyScripts/Player/PlayerLife.cs"
+"Assets/MyScripts/Zombie/Damage.cs"
 "Assets/MyScripts/Zombie/ZombieLife.cs"
 "Assets/MyScripts/Zombie/ZombieMovement.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"

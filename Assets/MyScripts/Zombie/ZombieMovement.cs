@@ -16,30 +16,48 @@ public class ZombieMovement : MonoBehaviour
 
     public float x,y; 
 
+    //To follow the player
+    public GameObject playerToFollow = null;
+    void awake(){
+        
+    }
+
     void Start()
     {
+        playerToFollow = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
-        action();
+        //action();
     }
 
     void Update()
     {
-        if(isDead == false){
-            if(wait){
-                x = 0;
-                anim.SetFloat("VelX", x);
-            }
-            if(walk){
-                x = 1;
-                anim.SetFloat("VelX", x);
-                transform.position += (transform.forward * movementVelocity * Time.deltaTime);;
-            }
-            if(rotate){
-                x = 1;
-                anim.SetFloat("VelX", x);
-                transform.Rotate(Vector3.up * Time.deltaTime * rotationVelocity);
-            }
+        //To follow the player
+        if(playerToFollow == null){
+            return;
         }
+        transform.position = Vector3.MoveTowards(transform.position, playerToFollow.transform.position, movementVelocity * Time.deltaTime);
+        anim.SetFloat("VelX", 1);
+        //anim.SetFloat("VelX", transform.position.x);
+        transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(playerToFollow.transform.position - transform.position), movementVelocity*Time.deltaTime);
+        //transform.up = playerToFollow.transform.position - transform.position;
+
+
+        // if(isDead == false){
+        //     if(wait){
+        //         x = 0;
+        //         anim.SetFloat("VelX", x);
+        //     }
+        //     if(walk){
+        //         x = 1;
+        //         anim.SetFloat("VelX", x);
+        //         transform.position += (transform.forward * movementVelocity * Time.deltaTime);;
+        //     }
+        //     if(rotate){
+        //         x = 1;
+        //         anim.SetFloat("VelX", x);
+        //         transform.Rotate(Vector3.up * Time.deltaTime * rotationVelocity);
+        //     }
+        //}
     }
 
     void action(){

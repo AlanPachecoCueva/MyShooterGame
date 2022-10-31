@@ -1635,6 +1635,7 @@ MonoBehaviour:
   reactionTime: 0.8
   x: 0
   y: 0
+  playerToFollow: {fileID: 0}
 --- !u!114 &2352417337303019128
 MonoBehaviour:
   m_ObjectHideFlags: 0
