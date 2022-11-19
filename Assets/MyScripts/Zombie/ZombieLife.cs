@@ -24,8 +24,6 @@ public class ZombieLife : MonoBehaviour
         
     }
 
-    
-
     public void substractLife(){
         //Used by rayCast in RayCastGenerator in the gun
         if(life > 0){
@@ -35,9 +33,9 @@ public class ZombieLife : MonoBehaviour
                     Debug.Log("Muerto");
                     zm.setIsDead();
                     //I use the 5 numbers to start an animation in the animator controller
-                    anim.SetFloat("VelX", 5);
-                    anim.SetFloat("VelY", 5);
-                    Invoke("killZombie", 1f);
+                   anim.SetFloat("VelX", 5);
+                    anim.SetFloat("VelY", 5); 
+                    Invoke("killZombie", 1.5f);
                 }
             }
     }
@@ -45,4 +43,5 @@ public class ZombieLife : MonoBehaviour
     void killZombie(){
         Destroy(this.gameObject);
     }
+    
 }

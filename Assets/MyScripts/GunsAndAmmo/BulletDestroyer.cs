@@ -19,7 +19,7 @@ public class BulletDestroyer : MonoBehaviour
             //Debug.Log("Time: "+lifeTime);
         }
 
-        if(lifeTime < 0){
+        if(lifeTime < 1){
             Destroy(this.gameObject);
         } 
     }
