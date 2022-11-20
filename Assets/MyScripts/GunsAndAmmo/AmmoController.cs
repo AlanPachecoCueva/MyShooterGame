@@ -55,4 +55,5 @@ public class AmmoController : MonoBehaviour
         chargesCounter +=10;
         ChargesTag.text = ""+(chargesCounter);
     }
+
 }

@@ -21,15 +21,17 @@ public class ZombieMovement : MonoBehaviour
     public GameObject playerToFollow = null;
     public NavMeshAgent MyAgent;
     public int range;
+
+    public bool isFollowingPlayer = false;
     void awake(){
         
     }
 
     void Start()
     {
-        //playerToFollow = GameObject.FindGameObjectWithTag("Player");
+        playerToFollow = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
-        //action();
+        action();
     }
 
     void Update()
@@ -41,8 +43,9 @@ public class ZombieMovement : MonoBehaviour
             float dist = Vector3.Distance(this.transform.position, playerToFollow.transform.position);
 
             if(dist < range){
+                isFollowingPlayer = true;
                 //MyAgent.destination = playerToFollow.transform.position;
-                if(playerToFollow == null){
+                if (playerToFollow == null){
                     return;
                 }
                 transform.position = Vector3.MoveTowards(transform.position, playerToFollow.transform.position, movementVelocity * Time.deltaTime);
@@ -52,46 +55,59 @@ public class ZombieMovement : MonoBehaviour
                 anim.SetFloat("VelX", 1);
             }
 
-        }
+            //Si no está siguiendo al jugador, camina aleatoriamente
+            if (!isFollowingPlayer) {
+                
+                if (wait)
+                {
+                    x = 0;
+                    anim.SetFloat("VelX", x);
+                }
+                if (walk)
+                {
+                    x = 1;
+                    anim.SetFloat("VelX", x);
+                    transform.position += (transform.forward * movementVelocity * Time.deltaTime); ;
+                }
+                if (rotate)
+                {
+                    x = 1;
+                    anim.SetFloat("VelX", x);
+                    transform.Rotate(Vector3.up * Time.deltaTime * rotationVelocity);
+                }
         
+            }
 
-        // if(isDead == false){
-        //     if(wait){
-        //         x = 0;
-        //         anim.SetFloat("VelX", x);
-        //     }
-        //     if(walk){
-        //         x = 1;
-        //         anim.SetFloat("VelX", x);
-        //         transform.position += (transform.forward * movementVelocity * Time.deltaTime);;
-        //     }
-        //     if(rotate){
-        //         x = 1;
-        //         anim.SetFloat("VelX", x);
-        //         transform.Rotate(Vector3.up * Time.deltaTime * rotationVelocity);
-        //     }
-        //}
+        }
+
+
+        
     }
 
-    // void action(){
-    //     if(isDead == false){
-    //         movement = Random.Range(1, 4);
-    //         if(movement ==1){
-    //             walk = true;
-    //             wait = false;
-    //         }
-    //         if(movement == 2){
-    //             wait = true;
-    //             walk = false;
-    //         }
-    //         if(movement == 3){
-    //             rotate = true;
-    //             StartCoroutine(rotateTime());
-    //         }
+    void action()
+    {
+        if (isDead == false)
+        {
+            movement = Random.Range(1, 4);
+            if (movement == 1)
+            {
+                walk = true;
+                wait = false;
+            }
+            if (movement == 2)
+            {
+                wait = true;
+                walk = false;
+            }
+            if (movement == 3)
+            {
+                rotate = true;
+                StartCoroutine(rotateTime());
+            }
 
-    //         Invoke("action", reactionTime);
-    //     }
-    // }
+            Invoke("action", reactionTime);
+        }
+    }
 
     IEnumerator rotateTime(){
         yield return new WaitForSeconds(1);

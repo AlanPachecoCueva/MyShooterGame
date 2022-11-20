@@ -9,11 +9,12 @@ public class ZombieLife : MonoBehaviour
 
     ZombieMovement zm;
 
-   
+    public AudioSource source;
+    public AudioClip clipZombieDead;
 
     void Start()
     {
-       
+        source = this.GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         zm = GetComponent<ZombieMovement>();
     }
@@ -30,13 +31,21 @@ public class ZombieLife : MonoBehaviour
                 life -= 1;
                 if(life < 1){
                     //The character die
-                    Debug.Log("Muerto");
                     zm.setIsDead();
                     //I use the 5 numbers to start an animation in the animator controller
-                   anim.SetFloat("VelX", 5);
-                    anim.SetFloat("VelY", 5); 
-                    Invoke("killZombie", 1.5f);
+                    anim.SetFloat("VelX", 5);
+                    anim.SetFloat("VelY", 5);
+                Debug.Log("Sonido muerte");
+                if (source.isPlaying)
+                {
+                    Debug.Log("Para sonido");
+                    source.Stop();
                 }
+                source.volume = 1;
+                source.PlayOneShot(clipZombieDead);
+                source.volume = 0.1f;
+                Invoke("killZombie", 1.5f);
+            }
             }
     }
 

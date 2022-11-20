@@ -9,7 +9,8 @@ public class Damage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         pl = player.GetComponent<PlayerLife>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        pl = player.GetComponent<PlayerLife>();
         
     }
 

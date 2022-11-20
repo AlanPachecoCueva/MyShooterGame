@@ -70,6 +70,9 @@ public class RayCastGenerator : MonoBehaviour
             if(string.Compare(hit.transform.tag,"Enemy") == 0){
                 //Debug.Log("Pega a zombie");
                 hit.transform.gameObject.GetComponent<ZombieLife>().substractLife();
+
+                //Disminuye el número de zombies
+                zombieSpawner.numberOfZombies -= 1; 
             }
 
             if(string.Compare(hit.transform.tag,"Target") == 0){
