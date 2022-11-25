@@ -8,9 +8,16 @@ persigen al jugador.
 
 Contamos con scripts para:
 
-- 0El movimiento del personaje
-- Movimiento de los zombies enemigos
+- El movimiento del personaje
+- Movimiento de los zombies enemigos, los zombies siguen al jugador
+- Los zombies tienen movimiento aleatorio hasta que el jugador entre en el rango para la persecución
 - Generación y detección de raycast
 - Generación de objetos 3d con instantiate
 - Generación de daño por parte de los enemigos
 - Contabilidad de puntos (suma y resta)
+- Generación de enemigos mediante spawner
+- Puntos para dispensar puntos de vida
+- Puntos para dispensar balas
+- Guardar y cargar los puntajes, nombre de jugador y fecha en un json y mostrar los best scores
+- Menú de pausa que congela totalmente el tiempo
+- Cambio y navegación entre escenas
